@@ -1,4 +1,4 @@
-# 🔁 Multi-Service (Golang and Python) Reverse Proxy with Nginx and Docker 
+# 🔁 Multi-Service (Golang and Python) Application with Nginx Reverse Proxy and Docker
 
 This project follows a microservice architecture where each backend service runs independently in its own Docker container, and **NGINX** serves as a reverse proxy to route requests to the appropriate service.
 
