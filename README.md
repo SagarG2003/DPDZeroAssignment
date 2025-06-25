@@ -80,10 +80,9 @@ Each route hit through the proxy is logged with:
 log_format main_log '$remote_addr - [$time_local] "$request" '
                     '$status $body_bytes_sent "$http_user_agent"';
 ```
+---
 
 ## 🏗️ Bonus
-
----
 
 ## Multi-stage Docker Builds for Minimun Docker Image Size
 
@@ -102,3 +101,9 @@ To optimize performance and reduce Docker image size, both services are built us
 ## 🧩 Use of ASGI with flask and Uvicorn (Service_2)
 
 I have used ASGI server because as per requirement the code was running with uvicorn rather with python. So, to ensure performance and compatibility with uvicorn and docker ASGI server is used in python (flask) application.
+
+## 🔍 Logging and Monitoring with Prometheus and Grafana 
+
+**Prometheus** scrapes and stores metrics from our golang and python services (e.g., /metrics endpoint).
+
+**Grafana** reads those metrics from Prometheus and displays them on interactive dashboards.
