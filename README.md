@@ -56,7 +56,7 @@ Once running, all services are accessible via a single port (8080):
 
 > NGINX automatically strips the `/service1` or `/service2` prefix before forwarding.
 
-### All containers run on the same Docker bridge network, enabling hostname-based service discovery (`service_1`, `service_2`).
+### Note: All containers run on the same Docker bridge network, enabling hostname-based service discovery (`service_1`, `service_2`).
 
 ---
 
@@ -81,3 +81,24 @@ log_format main_log '$remote_addr - [$time_local] "$request" '
                     '$status $body_bytes_sent "$http_user_agent"';
 ```
 
+## 🏗️ Bonus
+
+---
+
+## Multi-stage Docker Builds for Minimun Docker Image Size
+
+To optimize performance and reduce Docker image size, both services are built using multi-stage Docker builds.
+- Service_1: Reduced docker image size from 140MB to 15MB
+- Service_2: Reduced docker image size from 200MB to 130MB
+
+📦 Why Use Multi-Stage Builds?
+
+ ~ Faster container startup time
+
+ ~ Smaller attack surface
+
+ ~ No unused build tools or dependencies in production
+
+## 🧩 Use of ASGI with flask and Uvicorn (Service_2)
+
+I have used ASGI server because as per requirement the code was running with uvicorn rather with python. So, to ensure performance and compatibility with uvicorn and docker ASGI server is used in python (flask) application.
